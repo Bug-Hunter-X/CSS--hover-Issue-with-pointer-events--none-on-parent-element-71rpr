@@ -1,0 +1,24 @@
+The solution involves using a different approach to achieve the hover effect without relying on the `:hover` pseudo-class triggering on the child element.
+One approach is to apply the hover effect directly to the parent container and use a different selector to style the inner element.
+
+```css
+.container {
+  pointer-events: none;
+}
+
+.container:hover {
+  background-color: rgba(255,255,0,0.5); /* Semi-transparent yellow overlay */
+}
+
+.container:hover .inner {
+  background-color: yellow; 
+}
+
+.inner {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+}
+```
+
+This solution ensures that the inner element will still be styled when hovering over the parent container, even with `pointer-events: none` in place.
