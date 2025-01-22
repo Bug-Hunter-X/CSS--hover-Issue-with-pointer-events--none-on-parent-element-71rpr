@@ -1,0 +1,19 @@
+The following CSS code snippet demonstrates an uncommon error related to the `:hover` pseudo-class not working as expected on an element within a container with `pointer-events: none;`:
+
+```css
+.container {
+  pointer-events: none;
+}
+
+.container:hover .inner {
+  background-color: yellow;
+}
+
+.inner {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+}
+```
+
+In this case, the `.inner` element will not change its background color when hovering over the `.container`.  This is because the `pointer-events: none;` on the parent `.container` prevents any events, including `:hover`, from propagating to its children.
